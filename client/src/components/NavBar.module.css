@@ -1,0 +1,120 @@
+.stanokheader {
+    width: 100%;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 205px;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    top: 80px;
+    font-size: 20px;
+    word-wrap: normal;
+    z-index: 10;
+}
+
+.stanokcontainer {
+    margin: 0 auto;
+}
+
+.texttop {
+font-size: 35px;
+font-weight: bold;
+}
+
+.btnnav {
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    background-color: white;
+    color: black;
+    border: none;
+    padding: 20px 5px 20px 5px;
+    font-size: 20px;
+    width: 207px;
+    word-wrap: normal;
+    border-bottom: 1px solid grey;
+    border-right:  1px solid gray;
+}
+
+.btnnav:hover {
+    background-color: rgb(238, 238, 238);
+}
+
+.btnnav2 {
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s;
+    background-color: rgb(199, 199, 199);
+    color: black;
+    border: none;
+    border-bottom: 1px solid grey;
+    padding: 20px 5px 20px 5px;
+    font-size: 20px;
+    word-wrap: normal;
+    width: 207px;
+    border-right:  1px solid gray;
+}
+
+.box {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid grey;
+    justify-content: space-evenly;
+}
+
+.mobile_btn {
+    display: none;
+}
+
+@media (max-width: 800px){
+
+    .mobile_btn {
+        display: flex;
+        position: absolute;
+        left: 10px;
+        top: 28px;
+        cursor: pointer;
+        z-index: 10;
+    }
+
+    .menu {
+        left: -100%;
+        width: 100%;
+        border: none;
+        transition: left 0.5s;
+    }
+
+    .active {
+        left: 0;
+    }
+
+    .btnnav {
+        -webkit-transition-duration: 0.5s;
+        transition-duration: 0.5s;
+        background-color: rgb(255, 255, 255);
+        color: black;
+        border: none;
+        padding: 20px 5px 20px 5px;
+        font-size: 30px;
+        width: 100vw;  
+        word-wrap: normal;
+        border-bottom: 1px solid grey;
+    }
+
+    .btnnav2 {
+        -webkit-transition-duration: 0.5s;
+        transition-duration: 0.5s;
+        background-color: rgb(199, 199, 199);
+        color: black;
+        border: none;
+        padding: 20px 5px 20px 5px;
+        font-size: 30px;
+        word-wrap: normal;
+        width: 100vw;
+    }
+}

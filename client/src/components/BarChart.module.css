@@ -1,0 +1,27 @@
+.mainChart {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index: 1;
+    left: 205px;
+    top: 144px;
+    width: calc(100vw - 205px);
+    padding: 10px 0px 0px 20px;
+}
+.customlegend {
+    display: flex;
+    flex-wrap: wrap;      /* Элементы будут переноситься на новую строку при нехватке места */
+    justify-content: flex-start; /* Выравнивание элементов легенды в начало контейнера */
+    margin-top: 10px;     /* Отступ сверху, чтобы отделить легенду от графика */
+    padding-left: 0;      /* Убедитесь, что легенда не выходит за рамки левой части контейнера */
+   
+}
+
+@media (max-width: 800px) {
+    .mainChart {
+        width: 100vw;
+        left: 0;
+        padding: 10px 0px 0px 0px;
+    }
+    
+}

@@ -1,0 +1,21 @@
+.calendar {
+    display: flex;
+    position: absolute;
+    z-index: 1;
+    top: 88px;
+    left: 220px;
+}
+
+.flatpickr-input {
+    width: 100%; /* Устанавливает ширину плейсхолдера по ширине контейнера */
+    font-size: 20px; /* Увеличивает размер шрифта */
+    padding: 10px; /* Добавляет немного отступа внутри плейсхолдера */
+  }
+.custom-flatpickr{
+  width: 370px;
+}
+.custom-select {
+    font-size: 20px; /* Увеличение размера шрифта */
+    margin-left: 15px; 
+  }
+  

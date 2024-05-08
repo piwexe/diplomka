@@ -1,0 +1,16 @@
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f2f5;
+  }
+  
+  .login-form {
+    width: 300px;
+    margin: 0 auto;
+  }
+  
+  .login-form-button {
+    width: 100%;
+  }
