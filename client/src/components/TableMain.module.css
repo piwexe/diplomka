@@ -27,7 +27,17 @@
     .maintable {
         width: 100%;
         left: 0;
+        top: 180px;
         padding: none;
     }
-    
+    .texttt {
+        display: flex;
+        position: fixed;
+        z-index: 1;
+        left: 0px;
+        top: 170px;
+        width: 100%;
+        font-size: 32px;
+        font-weight: bold;
+    }
 }
