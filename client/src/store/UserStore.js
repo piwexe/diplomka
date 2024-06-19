@@ -8,6 +8,7 @@ export default class UserStore {
         this._rawData = [];
         this._goodData = 0;
         this._badData = 0;
+        this._dateRange = getTodayRange(); // Добавляем состояние диапазона дат
         makeAutoObservable(this)
     }
     setIsAuth(bool) {
@@ -28,6 +29,9 @@ export default class UserStore {
     setBadData(badData) {
         this._badData = badData;
     }
+    setDateRange(range) {
+        this._dateRange = range;
+    }
     get isAuth() {
         return this._isAuth
     }
@@ -46,5 +50,16 @@ export default class UserStore {
     get badData() {
         return this._badData;
     }
+    get dateRange() {
+        return this._dateRange;
+    }
 }
+const getTodayRange = () => {
+    const startOfDay = new Date();
+    startOfDay.setHours(0, 0, 0, 0); // Установить начало дня
 
+    const endOfDay = new Date();
+    endOfDay.setHours(23, 59, 59, 999); // Установить конец дня
+
+    return [startOfDay, endOfDay];
+};

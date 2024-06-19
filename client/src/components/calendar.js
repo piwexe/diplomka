@@ -8,10 +8,10 @@ import 'flatpickr/dist/themes/material_blue.css';
 import "./calendar.css"
 
 const RangeCalendar = observer(() => {
-    
-  const [date, setDate] = useState(getTodayRange());
-  const dateToSend = useMemo(() => date.map(dateObj => dateObj ? dateObj.toISOString() : null), [date]);
   const {user} = useContext(Context);
+  const date = user.dateRange;
+  const dateToSend = useMemo(() => date.map(dateObj => dateObj ? dateObj.toISOString() : null), [date]);
+ 
   const [selectedId, setSelectedId] = useState(null);
 
   const handleSelectChange = (event) => {
@@ -119,8 +119,8 @@ return () => clearInterval(intervalId);
         className="custom-flatpickr"
         value={date}
         onChange={([start, end]) => {
-            setDate([start, end]);
-          }}
+          user.setDateRange([start, end]);
+        }}
         options={{
           mode: 'range',
           enableTime: true,
@@ -138,15 +138,5 @@ return () => clearInterval(intervalId);
     
   );
 });
-
-const getTodayRange = () => {
-  const startOfDay = new Date();
-  startOfDay.setHours(0, 0, 0, 0); // Установить начало дня
-
-  const endOfDay = new Date();
-  endOfDay.setHours(23, 59, 59, 999); // Установить конец дня
-
-  return [startOfDay, endOfDay];
-};
 
 export default RangeCalendar;

@@ -72,14 +72,8 @@ const BarChart2 = observer(() => {
 
     useEffect(() => {
         if (user.dataCalendar && user.dataCalendar.length) {
-            const timestamps = user.dataCalendar.map(data => new Date(data.time));
-            //Находим минимальное и максимальное значения времени
-           const minTime = new Date(Math.min(...timestamps));
-           const maxTime = new Date(Math.max(...timestamps));
-       
-            // Устанавливаем время этой даты на 8 утра
-            const minX = new Date(minTime.setHours(8, 0, 0, 0));
-            const maxX = new Date(maxTime.setHours(18, 0, 0, 0));
+            let minTime = user.dateRange[0];
+            let maxTime = user.dateRange[1];
        
            const maxDiameter = Math.max(...user.dataCalendar.map((data) => data.diameter)) * 1.4;
             setChartData({
@@ -123,8 +117,8 @@ const BarChart2 = observer(() => {
                             stepSize: 0.1,
                             //autoSkip: true,
                         },
-                        min: minX,
-                        max: maxX,
+                        min: minTime,
+                        max: maxTime,
                         grid: {
                             drawTicks: true,
                             tickLength: 5,
