@@ -144,17 +144,8 @@ const BarChart2 = observer(() => {
                 },
                 plugins: {
                     legend: {
-                        display: false,
-                        // labels: {
-                        //     color: 'black',                 // цвет текста метки
-                        //     boxWidth: 20,                 // ширина ящика метки
-                        //     font: {
-                        //         size: 20,                 // размер шрифта метки
-                        //         weight: 'bold',            // стиль шрифта метки (например, 'bold')
-                        //     },
-                        // }
+                        display: false
                     },
-        
                     tooltip: {
                         mode: 'index', // 'index' позволяет показывать подсказки для всех элементов в этой категории
                         intersect: false,

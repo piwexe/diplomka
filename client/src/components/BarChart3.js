@@ -74,13 +74,9 @@ const BarChart3 = observer(() => {
     }
     useEffect(() => {
         if (user.dataCalendar && user.dataCalendar.length > 0) {
-            const timestamps = user.dataCalendar.map(data => new Date(data.time));
-            const minTime = new Date(Math.min(...timestamps));
-            const maxTime = new Date(Math.max(...timestamps));
-            const minX = new Date(minTime.setHours(8, 0, 0, 0));
-            const maxX = new Date(maxTime.setHours(18, 0, 0, 0))
-            // Подготовка данных: агрегация по 10-минутным интервалам
-            // Предполагаем, что агрегация уже выполнена и результаты хранятся в aggregatedData
+            let minTime = user.dateRange[0];
+            let maxTime = user.dateRange[1];
+
             const aggregatedData = aggregateDataByTimeInterval(user.dataCalendar);
             setChartData({
                 labels: aggregatedData.labels,
@@ -121,8 +117,8 @@ const BarChart3 = observer(() => {
                             autoSkip: true,
                             stepSize: 10,
                         },
-                        min: minX,
-                        max: maxX,
+                        min: minTime,
+                        max: maxTime,
                         grid: {
                             drawTicks: true,
                             tickLength: 5,
@@ -147,23 +143,7 @@ const BarChart3 = observer(() => {
                 },
                 plugins: {
                     legend: {
-                        display: false,
-                        labels: {display: false,  
-                        //     color: 'black',
-                        //     boxWidth: 20,
-                        //     font: {
-                        //         size: 20,
-                        //         weight: 'bold'
-                        //     },
-                        //     generateLabels: (chart) => {
-                        //         return getLegendData(aggregatedData.rawRollIds).map((item) => ({
-                        //             text: item.label,
-                        //             fillStyle: item.color,
-                        //             strokeStyle: item.color,
-                        //             lineWidth: 2
-                        //         }));
-                        //     }
-                        }
+                        display: false
                     },
                     tooltip: {
                         mode: 'index',
