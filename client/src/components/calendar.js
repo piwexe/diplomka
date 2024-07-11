@@ -27,7 +27,7 @@ const RangeCalendar = observer(() => {
                  Authorization: `Bearer ${token}`
                 }
                 };
-        const response = await axios.get(`http://localhost:4000/api/rawRoll/getAllEntries?start=${dateToSend[0]}&end=${dateToSend[1]}`, config);
+        const response = await axios.get(`http://192.168.68.57:4000/api/rawRoll/getAllEntries?start=${dateToSend[0]}&end=${dateToSend[1]}`, config);
         user.setrawData(response.data); // Предполагая, что ответ содержит массив опций
       } catch (error) {
         console.error('Error fetching select options:', error);
@@ -48,7 +48,7 @@ const RangeCalendar = observer(() => {
                  Authorization: `Bearer ${token}`
                 }
                 };
-                let url = `http://localhost:4000/api/namotka1/getAllEntries?start=${dateToSend[0]}&end=${dateToSend[1]}`;
+                let url = `http://192.168.68.57:4000/api/namotka1/getAllEntries?start=${dateToSend[0]}&end=${dateToSend[1]}`;
                 if (selectedId) {
                     url += `&selectedId=${selectedId}`;
                 }
@@ -73,7 +73,7 @@ const RangeCalendar = observer(() => {
                Authorization: `Bearer ${token}`
               }
               };
-              let url = `http://localhost:4000/api/namotka1/getGood?start=${dateToSend[0]}&end=${dateToSend[1]}`;
+              let url = `http://192.168.68.57:4000/api/namotka1/getGood?start=${dateToSend[0]}&end=${dateToSend[1]}`;
               if (selectedId) {
                   url += `&selectedId=${selectedId}`;
               }
@@ -97,7 +97,7 @@ const RangeCalendar = observer(() => {
              Authorization: `Bearer ${token}`
             }
             };
-            let url = `http://localhost:4000/api/namotka1/getBad?start=${dateToSend[0]}&end=${dateToSend[1]}`;
+            let url = `http://192.168.68.57:4000/api/namotka1/getBad?start=${dateToSend[0]}&end=${dateToSend[1]}`;
             if (selectedId) {
                 url += `&selectedId=${selectedId}`;
             }
