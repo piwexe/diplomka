@@ -10,9 +10,11 @@ const PORT = process.env.PORT || 4000
 
 const app = express()
 const corsOptions = {
-    origin: '*',  // Разрешить запросы с любого источника
+    origin: 'http://monitoringtest.ddns.net',  
+    optionsSuccessStatus: 200,
     credentials: true,
-    exposedHeaders: ['set-cookie']
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    exposedHeaders: ['Access-Control-Allow-Origin', 'Access-Control-Allow-Credentials', 'set-cookie']
 };
 
 app.use(cors(corsOptions));
