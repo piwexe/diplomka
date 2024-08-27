@@ -17,21 +17,27 @@ class rawRollController {
 
     async getAllEntries(req, res, next) {
         const { start, end } = req.query;
-        const startingDate = new Date(start);
-        const endDate = new Date(end);
+        
+        let whereCondition = {};
+    
+        if (start && end) {
+            const startingDate = new Date(start);
+            const endDate = new Date(end);
+            whereCondition.startDate = {
+                [Op.between]: [startingDate, endDate]
+            };
+        }
+    
         try {
-            const rawRoll = await RawRoll.findAll( {
-                where: {
-                    startDate: {
-                      [Op.between]: [startingDate, endDate]
-                    }
-                  }
-            })
+            const rawRoll = await RawRoll.findAll({
+                where: whereCondition
+            });
             return res.json(rawRoll);
         } catch (error) {
             next(ApiError.badRequest(error.message));
         }
     }
+    
     
 
     async getEntryById(req, res) {
